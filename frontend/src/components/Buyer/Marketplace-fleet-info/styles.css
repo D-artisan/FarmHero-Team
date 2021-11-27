@@ -1,0 +1,343 @@
+/* Predefine fonts */
+
+@font-face {
+	font-family: 'MontserratSemiBold';
+	src: local('Montserrat-SemiBold'),
+		url('../../../Assets/Montserrat/Montserrat-SemiBold.ttf')
+			format('truetype');
+	font-weight: normal;
+}
+@font-face {
+	font-family: 'MontserratRegular';
+	src: local('Montserrat-Regular'),
+		url('../../../Assets/Montserrat/Montserrat-Regular.ttf')
+			format('truetype');
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'MontserratBold';
+	src: local('Montserrat-Bold'),
+		url('../../../Assets/Montserrat/Montserrat-Bold.ttf')
+			format('truetype');
+	font-weight: normal;
+}
+
+/* custom stylesheet */
+
+
+/****** main container *****/
+.marketdashboard-container {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: row;
+	overflow: hidden;
+}
+
+/****** main container header*****/
+.marketdashboard-container-header{
+      width: 20%;
+      height: 100%;
+}
+
+/****** main container body*****/
+.marketdashboard-container-body{
+      width: 70%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+     
+}
+
+.navbar-position-containery{
+      width: 50%;
+      height: 20%;
+      display: flex;
+      justify-content: flex-end;
+      position: absolute;
+      right: 0;
+}
+
+
+ /*********** header starts  here ************/
+
+.dashboard-fleetinfo {
+	 margin-left: 70px;
+       margin-top: 25px;
+      width: 40%;
+      height: 90px;
+}
+
+
+.dashboard-fleetinfo h2 {
+	font-weight: 900;
+	font-size: 30px;
+	font-family: 'MontserratSemiBold';
+	color: #231f20;
+       margin: 0;
+}
+
+.delivery-p{
+	font-weight: 900;
+	font-size: 12px;
+	font-family: 'MontserratSemiBold';
+	color: #231f20;
+      margin: 0;
+      margin-bottom: 20px;
+	
+}
+
+
+
+ /*********** header ends  here ************/
+
+  /*********** marketdashboardinventory content container starts here ********/
+
+  .marketdashboardfleetinfo-content-container {
+ 	width: 120%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      overflow: hidden; 
+      overflow-y: scroll;
+      scrollbar-width: none;
+      margin-top: 45px;
+      margin-left: 60px ;
+      padding-left:50px;
+      /* background: red; */
+}
+
+.dashboardsolid-containter{
+      width: 85%;
+      margin-left: -50px;
+}
+
+
+  /*********** fli section container starts here ********/
+
+.fli-section-one{
+      width: 100%;
+      height: 250px;
+      /* background: #000; */
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 30px;
+}
+
+.fli-section-one-left{
+      width: 100%;
+      height: 100%;
+       border: .5px solid #231f2027;
+       background: #fff;
+       border-radius: 10px;
+       display: grid;
+       grid-template-columns:  1.2fr 2fr;
+}
+
+.fli-icon-content{
+      width: 100%;
+      height: 100%;
+      padding-left: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+}
+
+.fli-icon-container{
+      width: 130px;
+      height: 130px;
+      border: 4px solid #e6f0f1;
+      border-top: 4px solid #3daf73;
+      transform: rotate(45deg);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+}
+
+.fli-icon-container h3{
+       transform: rotate(-45deg);
+     font-family: "MontserratBold";
+      font-size: 25px;
+      margin-top: -10px;
+      margin-left: -10px;
+      color: #231f20;
+}
+.fli-icon-container p{
+       transform: rotate(-45deg);
+       margin: 0;
+      font-family: "MontserratRegular";
+      font-size: 15px;
+      margin-left: 20px;
+      margin-top: -25px;
+      color: #3daf73;
+}
+
+.fli-detail-content{
+      width: 100%;
+      height: 100%;
+      padding-right: 20px;
+      display: flex;
+      justify-content: center;
+      /* align-items: center; */
+      flex-direction: column;
+      margin-left: 50px;
+}
+
+
+.fli-detail-container h3{
+     font-family: "MontserratBold";
+      font-size: 25px;
+      color: #231f20;
+}
+
+.fli-icon-content img{
+      width: 100px;
+      height: 100px;
+}
+
+.fli-text-special{
+      font-family: "MontserratBold";
+      font-size: 12px;
+      color: #231f20;
+}
+
+.fli-detail-content p{
+      margin: 0;
+      font-family: "MontserratSemiBold";
+      font-size: 12px;
+      color: #c4c4c4;
+      margin-top: 5px;
+}
+
+.fli-detail-content span{
+      margin: 0;
+      font-family: "MontserratSemiBold";
+      font-size: 12px;
+      color: #231f20;
+}
+
+.fli-section-two{
+      width: 100%;
+      height: 300px;
+      /* background: #000; */
+      margin-bottom: 60px;
+}
+
+.fli-section-two p{
+	font-weight: 900;
+	font-size: 12px;
+	font-family: 'MontserratSemiBold';
+	color: #231f20;
+      margin: 0;
+      margin-top: 20px;
+      margin-bottom: 20px;
+	
+}
+
+.fli-section-two-info-container{
+      width: 100%;
+      height: 100%;
+       border: .5px solid #231f2027;
+       background: #fff;
+       border-radius: 10px;
+       display: grid;
+       grid-template-columns:  1.2fr 2.5fr;
+}
+
+.fli-two-container-left{
+      width: 100%;
+      height: 100%;
+      padding-left: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      /* background: #000; */
+}
+
+.fli-two-image-container{
+      width: 130px;
+      height: 130px;
+      border-radius: 10px;
+}
+
+.fli-two-image-container img{
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+}
+
+.fli-two-container-left h3{
+      font-family: "MontserratSemiBold";
+      font-size: 15px;
+      color: #231f20;
+}
+
+.fli-two-container-right{
+      width: 100%;
+      height: 100%;
+      padding-left: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+}
+
+.fli-two-inner{
+      border-top: .5px solid #231f2027;
+      border-bottom: .5px solid #231f2027;
+      width: 90%;
+      height: 90%;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      padding-top: 5px;
+      padding-left: 15px;
+
+}
+
+.fli-two-card{
+      width: 90%;
+      height: 75px;
+      background: #3daf73;
+      border-radius: 5px;
+}
+.fli-card-two-header{
+      width: 100%;
+      height: 60%;
+      /* background: red; */
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-left: 10px;
+      padding-right: 10px;
+}
+
+.fli-card-two-header img {
+      width: 20px;
+      height: 20px;
+        filter: brightness(0) invert(1);
+}
+
+.fli-card-two-header h3{
+       font-family: "MontserratSemiBold";
+      font-size: 11px;
+      color: #fff;
+}
+
+.fli-card-two-body{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+
+.fli-card-two-body h3{
+      font-family: "MontserratSemiBold";
+      font-size: 14px;
+      margin: 0;
+      color: #fff;
+}

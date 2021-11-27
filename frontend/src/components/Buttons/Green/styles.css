@@ -1,0 +1,23 @@
+/* Predefined fonts */
+
+@font-face {
+  font-family: "MontserratRegular";
+  src: local("Montserrat-Regular"),
+    url("../../../Assets/Montserrat/Montserrat-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+
+/* Desktop stylesheet */
+
+.green-button-container{
+      width: 130px;
+      height: 50px;
+      background: #3daf73;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: "MontserratRegular";
+      color: #ffffffff;
+      font-size: 14px;
+}

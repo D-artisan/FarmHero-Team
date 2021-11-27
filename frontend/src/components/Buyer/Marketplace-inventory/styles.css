@@ -1,0 +1,312 @@
+/* Predefine fonts */
+
+@font-face {
+	font-family: 'MontserratSemiBold';
+	src: local('Montserrat-SemiBold'),
+		url('../../../Assets/Montserrat/Montserrat-SemiBold.ttf')
+			format('truetype');
+	font-weight: normal;
+}
+@font-face {
+	font-family: 'MontserratRegular';
+	src: local('Montserrat-Regular'),
+		url('../../../Assets/Montserrat/Montserrat-Regular.ttf')
+			format('truetype');
+	font-weight: normal;
+}
+
+@font-face {
+	font-family: 'MontserratBold';
+	src: local('Montserrat-Bold'),
+		url('../../../Assets/Montserrat/Montserrat-Bold.ttf')
+			format('truetype');
+	font-weight: normal;
+}
+
+/* custom stylesheet */
+
+
+/****** main container *****/
+.marketdashboard-container {
+	width: 100%;
+	height: 100vh;
+	display: flex;
+	flex-direction: row;
+	overflow: hidden;
+}
+
+/****** main container header*****/
+.marketdashboard-container-header{
+      width: 20%;
+      height: 100%;
+}
+
+/****** main container body*****/
+.marketdashboard-container-body{
+      width: 70%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+     
+}
+
+.navbar-position-containery{
+      width: 50%;
+      height: 20%;
+      display: flex;
+      justify-content: flex-end;
+      position: absolute;
+      right: 0;
+}
+
+
+ /*********** header starts  here ************/
+
+.dashboard-inventory-one{
+	 margin-left: 70px;
+      width: 40%;
+      height: 90px;
+}
+
+.dashboard-inventory-one h2 {
+	font-weight: 900;
+	font-size: 30px;
+	font-family: 'MontserratSemiBold';
+	color: #231f20;
+}
+
+ /*********** header ends  here ************/
+
+  /*********** marketdashboardinventory content container starts here ********/
+
+  .marketdashboardinventory-content-container {
+ 	width: 120%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      overflow: hidden; 
+      overflow-y: scroll;
+      scrollbar-width: none;
+      margin-top: 45px;
+      margin-left: 60px ;
+      padding-left:50px;
+      /* background: red; */
+}
+
+.dashboardsolid-containter{
+      width: 85%;
+      margin-left: -50px;
+}
+
+  /*********** inventory-dashboard-header starts here ********/
+
+.inventory-dashboard-header{
+      width: 100%;
+      height: 30px;
+      display: flex;
+      justify-content: space-between;
+      margin-top: 30px;
+
+}
+.inventory-left{
+      height: 100%;
+      display: flex;
+      align-items: center;
+}
+.inventory-left p{
+     margin: 0;
+     font-family: "MontserratRegular";
+      font-size: 12px;
+       color: #249170;
+       margin-left: 10px;
+
+}
+.inventory-left input{
+      width: 18px;
+      height: 18px;
+      border: none;
+      background: #fff;
+        margin-left: 5px;
+
+}
+.inventory-right{
+      width: 70px;
+      height: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+}
+.inventory-icon-left, .inventory-icon-right{
+      width: 100%;
+      height: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+.invliticonlineup{
+       width: 100%;
+      height: 20px;
+      border-right: 1px solid #b7dec0;
+}
+
+.invliticonlineup-active{
+      filter: brightness(2) invert(.1);
+      
+}
+
+
+.inventory-icon-right img{
+      filter: brightness(0) invert(.8);
+}
+
+.inventory-icon-left img, .inventory-icon-right img{
+      width: 80%;
+      height: 80%;
+}
+
+  /*********** inventory-dashboard-header ends here ********/
+
+    /*********** inventory-dashboard-body starts here ********/
+
+.inventorystyle{
+     
+      width: 95%;
+      height: 100%;
+
+}
+
+.inventory-dashboard-body {
+      width: 100%;
+      height: 100%;
+      /* background: red; */
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-gap: 10px;
+      margin-top: 10px;
+      padding-top: 5px;
+
+}
+
+
+.inventory-detail-card{
+      width: 100%;
+      height: 230px;
+      background: #fff;
+      border: .5px solid #231f2027;
+      border-radius: 7px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+}
+
+.inventory-detail-card-header{
+      width: 100%;
+      height: 50%;
+       border-top-left-radius: 5px;
+       border-top-right-radius: 5px;
+       display: flex;
+       justify-content: center;
+}
+.inventory-detail-card-header img{
+      width: 100%;
+      height: 100%;
+       border-top-left-radius: 7px;
+       border-top-right-radius: 7px;
+     
+}
+.inventory-detail-card-header-header{
+       width: 15%;
+      height: 50px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: absolute;
+    
+
+}
+.inventory-detail-card-header-header p{
+     margin: 0;
+     font-family: "MontserratRegular";
+      font-size: 15px;
+      color: #fff;
+}
+.inventory-detail-card-body{
+      width: 80%;
+      height: 50%;
+      
+}
+
+.inventory-detail-card-body-header{
+       width: 100%;
+      height: 50px;
+      border-bottom: 1px solid #b7dec0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+}
+.inventory-detail-card-body-header h3{
+        font-family: "MontserratBold";
+      font-size: 100%;
+      font-weight: 900;
+      color: #231f20;
+      margin-right: 15px;
+      cursor: pointer;
+}
+.card-header-icon{
+      width: 30px;
+      height: 30px;
+      border: 1px solid #249170;
+      border-radius: 100%;
+}
+.card-body-top{
+      width: 100%;
+      display: flex;
+}
+
+.card-body-top p{
+     margin: 0;
+     font-family: "MontserratRegular";
+      font-size: 11px;
+      color: #249170;
+      margin-left: 10px;
+      margin-top: 10px;
+}
+.headinginv{
+      font-weight: 900;
+      margin-left: 0px !important;
+}
+.inventory-detail-card-header-last{
+      width: 100%;
+      height: 50%;
+      background: rgb(245, 228, 228);
+       border-top-left-radius: 5px;
+       border-top-right-radius: 5px;
+       display: flex;
+       justify-content: center;
+       align-items: center;
+}
+
+.inventory-detail-card-header-last img{
+      width: 50px;
+      height: 50px;
+      filter: brightness(0) invert(.8);
+}
+
+.inventory-detail-card-body-last{
+      width: 80%;
+      height: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+}
+
+.inventory-detail-card-body-last h3{
+      font-size: 14px !important;
+      color: rgb(139, 136, 136);
+      font-family: "MontserratBold";
+      font-size: 22px;
+      font-weight: 900;
+      margin: 0;
+      text-transform: uppercase;
+        cursor: pointer;
+}
