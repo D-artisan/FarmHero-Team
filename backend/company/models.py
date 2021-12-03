@@ -8,8 +8,8 @@ class Company(models.Model):
     class Meta:
         verbose_name_plural = "Company"
 
-    id = models.AutoField(primary_key=True)
-    user_id = models.ForeignKey(User, to_field='user_id', on_delete=models.CASCADE, verbose_name="User")
+    company_id = models.AutoField(primary_key=True)
+    id = models.ForeignKey(User, to_field='id', on_delete=models.CASCADE, verbose_name="User")
     name = models.CharField(max_length=200, verbose_name="Company name")
 
     class CompanyType(models.TextChoices):
