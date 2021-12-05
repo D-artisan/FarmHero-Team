@@ -5,12 +5,12 @@ from django_countries.fields import CountryField
 
 
 class Location(models.Model):
-    id = models.AutoField(primary_key=True)
+    location_id = models.AutoField(primary_key=True)
 
     class Meta:
         verbose_name_plural = "Client Location"
 
-    user_id = models.ForeignKey(User, to_field='user_id', on_delete=models.CASCADE, verbose_name="User")
+    id = models.ForeignKey(User, to_field='id', on_delete=models.CASCADE, verbose_name="User")
 
     country = CountryField(blank_label='(select country)')
     region = models.CharField(max_length=200)
@@ -20,4 +20,4 @@ class Location(models.Model):
     created_on = models.DateTimeField(default=datetime.now, blank=True)
 
     def __str__(self):
-        return str(self.user_id) + ' : Address'
+        return str(self.id) + ' : Address'

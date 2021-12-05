@@ -10,7 +10,7 @@ class User(AbstractUser):
     class Meta:
         verbose_name_plural = "Clients"
 
-    user_id = models.AutoField(primary_key=True)
+    id = models.AutoField(primary_key=True)
 
     class UserType(models.TextChoices):
         BUYER = 'BUY', _('Buyer')
@@ -28,10 +28,8 @@ class User(AbstractUser):
             self.UserType.SELLER,
         }
 
-    first_name = models.CharField(max_length=200, null=False)
-    last_name = models.CharField(max_length=200, null=False)
-    phoneNumber = PhoneNumberField(null=False, blank=False)
-    secondPhoneNumber = PhoneNumberField(null=True, blank=True)
+    phoneNumber = PhoneNumberField(blank=False)
+    secondPhoneNumber = PhoneNumberField(blank=True)
 
     class IdCardType(models.TextChoices):
         nhis = 'NHIS', _('NHIS')
@@ -51,17 +49,21 @@ class User(AbstractUser):
             self.IdCardType.voters_id_card,
         }
 
-    id_number = models.CharField(max_length=50, null=False)
+    id_number = models.CharField(max_length=50)
 
-    email = models.CharField(max_length=50, null=False, unique=True)
-    password = models.CharField(max_length=50, null=False)
-    username = None
+    name = models.CharField(max_length=255)
+    email = models.CharField(max_length=255, unique=True)
+    password = models.CharField(max_length=255)
+    # username = None
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
-    photo = models.ImageField(upload_to='photos/%Y%m%d/', null=False)
+    photo = models.ImageField(upload_to='photos/%Y%m%d/')
     created_on = models.DateTimeField(default=datetime.now, blank=True)
 
+    # def __str__(self):
+    #     return self.first_name + ' ' + self.last_name
+
     def __str__(self):
-        return self.first_name + ' ' + self.last_name
+        return self.name
