@@ -58,7 +58,7 @@ ROOT_URLCONF = 'FarmHero.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -121,7 +121,7 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'RealEstate_Mgt/static')
+    os.path.join(BASE_DIR, 'FarmHero/static')
 ]
 
 # Media Folder Settings
@@ -141,6 +141,7 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'dartisan.superuser@gmail.com'
 EMAIL_HOST_PASSWORD = 'testing4dev'
 EMAIL_USE_TLS = True
+
 
 AUTH_USER_MODEL = 'users.User'
 
