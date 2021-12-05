@@ -27,9 +27,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'stock.apps.StockConfig',
-    'accounts.apps.AccountsConfig',
-    'contacts.apps.ContactsConfig',
+    'marketplace.apps.MarketplaceConfig',
 
     'users.apps.UsersConfig',
     'location.apps.LocationConfig',
