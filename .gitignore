@@ -20,6 +20,7 @@ C:\PersonalProjects\FarmHero\env
 
 env
 
+<<<<<<< HEAD
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
@@ -45,3 +46,7 @@ yarn-debug.log*
 yarn-error.log*
 
 >>>>>>> 2569a62e0a7cd83c25de3f4165d1bcaeed1305f4
+=======
+C:\Users\Dartisan\Documents\Farm-Hero_Official\FarmHero-Team\frontend
+
+>>>>>>> testing
