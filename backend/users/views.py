@@ -1,5 +1,6 @@
 import datetime
 import jwt
+from django.shortcuts import render
 from rest_framework.exceptions import AuthenticationFailed
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -20,6 +21,7 @@ class LoginView(APIView):
     def post(self, request):
         email = request.data['email']
         password = request.data['password']
+        user_type = request.data['user_type']
 
         user = User.objects.filter(email=email).first()
 
@@ -40,8 +42,10 @@ class LoginView(APIView):
         response = Response()
 
         response.set_cookie(key='jwt', value=token, httponly=True)
+
         response.data = {
-            'jwt': token
+            'jwt': token,
+            'user_type': user_type
         }
         return response
 
