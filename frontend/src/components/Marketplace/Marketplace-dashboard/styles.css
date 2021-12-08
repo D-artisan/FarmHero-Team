@@ -1,0 +1,577 @@
+
+/* Predefine fonts */
+
+@font-face {
+  font-family: "MontserratSemiBold";
+  src: local("Montserrat-SemiBold"),
+    url("../../../Assets/Montserrat/Montserrat-SemiBold.ttf") format("truetype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: "MontserratRegular";
+  src: local("Montserrat-Regular"),
+    url("../../../Assets/Montserrat/Montserrat-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "MontserratBold";
+  src: local("Montserrat-Bold"),
+    url("../../../Assets/Montserrat/Montserrat-Bold.ttf") format("truetype");
+  font-weight: normal;
+}
+
+/* custom stylesheet */
+ 
+/****** main container *****/
+.marketdashboard-container{
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      flex-direction: row;
+      overflow: hidden;
+}
+
+/****** main container header*****/
+.marketdashboard-container-header{
+      width: 20%;
+      height: 100%;
+}
+
+/****** main container body*****/
+.marketdashboard-container-body{
+      width: 70%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+     
+      
+}
+.navbar-position-containery{
+      width: 50%;
+      height: 20%;
+      display: flex;
+      justify-content: flex-end;
+      position: absolute;
+      right: 0;
+}
+
+
+
+      /*********** welcome profile style starts  here ************/
+.dashboard-welcome{
+       margin-left: 50px;
+       /* margin-top: 70px; */
+      width: 40%;
+      height: 90px;
+      display: grid;
+      grid-template-columns: 1fr 3fr;
+}
+.welcome-profile{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+.welcome-content{
+      width: 100%;
+      height: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+.welcome-profile-image{
+      width: 70px;
+      height: 70px;
+      background: #bcdacad8;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+
+.welcome-profile-image img{
+      width: 58px;
+      height: 58px;
+      border-radius: 50px;
+      border: 3px solid #91cfa9;
+}
+p, span{
+    font-family: "MontserratRegular";
+}
+
+.welcome-content p {
+      font-size: 20px;
+      color: #231f20;
+      display: flex;
+      align-items: center;
+      margin-top: 10px;
+}
+
+
+.welcome-content h2{
+      font-weight: 900;
+      font-size: 20px;
+      font-family: "MontserratSemiBold";
+       color: #231f20;
+}
+
+.welcome-content .overview{
+      font-size: 12px;
+      color: #231f20;
+      margin-top: -25px;
+}
+.welcome-content-text{
+      width: 100%;
+      height: 100%;
+}
+
+ /*********** welcome profile style ends  here ************/
+
+ /*********** main content container starts here ********/
+ .marketdashboard-content-container{
+      width: 120%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      overflow: hidden; 
+      overflow-y: scroll;
+      scrollbar-width: none;
+      margin-top: 45px;
+      margin-left: 65px ;
+      padding-left:50px;
+     
+}
+
+.dashboardsolid-containter{
+      width: 85%;
+      margin-left: -50px;
+}
+
+ /*********** main content container cards starts here ********/
+
+.welcome-content-general{
+      width: 100%;
+      height: 80px;
+      margin-bottom: 20px;
+      margin-left: 5px;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-gap: 10px;
+   
+}
+
+
+.general-card{
+      background: #fff;
+      border: .5px solid #231f2027;
+      border-radius: 5px;
+      width: 100%;
+      height: 100%;
+      margin-top: 1px;
+      display: grid;
+      grid-template-columns: 1fr 2fr;      
+}
+.general-card-icon{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      margin-left: 5px;
+}
+.general-card-content{
+      display: flex;
+      align-items: center;
+      width: 100%;
+}
+
+.card-icon{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+.card-icon img{
+      width: 50px;
+      height: 50px;
+   
+}
+.card-content{
+      width: 100%;
+      height: 70px;
+}
+
+.card-content img {
+      width: 100%;
+      height: 100%;
+}
+.card-header{
+      width: 100%;
+      height: 30%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+}
+
+.card-header p{
+      font-family: "MontserratRegular";
+      font-size: 12px;
+      color: #678980;
+}
+.card-header h3{
+      font-family: "MontserratRegular";
+      font-size: 12px;
+      margin-right: 15px;
+      color: #231f20;
+}
+
+.card-detail{
+      width: 100%;
+      height: 70%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+}
+
+.card-detail img{
+      width: 30px;
+      height: 30px;
+      margin-left: 20px;
+
+}
+
+.card-detail h4{
+       font-family: "MontserratSemiBold";
+      font-size: 22px;
+      font-weight: 900;
+      color: #249170;
+      margin-right: 15px;
+}
+
+
+ /*********** main content container cards ends here ********/
+
+
+
+  /*********** shipment starts starts here ********/
+.welcome-content-shipment{
+      width: 100%;
+      height: 200px;
+      background: #fff;
+      border: .5px solid #231f2027;
+      margin-bottom: 20px;
+      border-radius: 5px;
+      margin-left: 5px;
+}
+.shipment-header{
+      width: 100%;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+   
+}
+
+.shipment-header-h3{
+      font-size: 15px;
+      font-family: "MontserratSemiBold";
+      margin-left: 40px;
+       color: #231f20;
+}
+
+.shipment-header-p{
+      font-size: 13px;
+     font-family: "MontserratRegular";
+      margin-right: 40px;
+      color: #249170    ;
+      display: flex;
+}
+.shipment-arrow{
+      width: 20px;
+      height: 20px;
+     
+}
+
+.shipment-arrow-icon{
+      width: 15px;
+      height: 15px;
+      transform: rotate(270deg);
+      margin-left: 5px;
+      
+}
+
+.shipment-body{
+      width: 100%;
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+}
+
+.shipment-body-flex{
+    width: 95%;
+      height: 140px;
+      display: flex;
+}
+.shipment-body-flex-container{
+      width: 90%;
+      height: 100%;
+      display: flex;
+       overflow-x: scroll;
+       padding-right: 20px;
+       scrollbar-width: none;
+}
+.shipment-body-flex-container-box{
+      width: 30000px;
+      height: 100%;
+      display: flex;
+      align-items: center;
+     
+}
+.shipment-body-flex-arrow{
+      width: 10%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+
+.shipment-body-flex-arrow img{
+      width: 30px;
+      height: 30px;
+      transform: rotate(270deg);
+}
+
+.shipment-flex-card{
+      width: 150px;
+      height: 95%;
+      background: #fff;
+      margin-left: 20px;
+      border-radius: 5px;
+      border: .5px solid #231f201e;
+}
+
+.shipment-card-detail{
+      width: 100%;
+      height: 75%;
+      display: grid;
+      grid-template-columns: .5fr 2.5fr 1fr;
+}
+.shipment-card-location{
+      width: 100%;
+      height: 20%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+}
+
+.shipment-card-location p{
+       font-family: "MontserratRegular";
+      font-size: 12px;
+      color: #678980;
+}
+
+.space-two{
+      height: 100px;
+      display: flex;
+      flex-direction: column;
+     align-items: center;
+}
+
+.space-two img{
+      width: 70px;
+      height: 70px;
+      margin-top: 10px;
+}
+
+.space-two h3{
+      margin-top: 0px;
+      font-size: 14px;
+      font-family: "MontserratSemiBold";
+      color: #231f20;
+}
+
+.space-three p{
+      font-size: 12px;
+      font-family: "MontserratRegular";
+      color: #249170;
+}
+  /*********** shipment  ends here ********/
+
+
+  /*********** transaction and market  ends here ********/
+
+
+.welcome-content-transactions{
+      width: 100%;
+      height: 350px;
+      margin-left: 5px;
+      margin-bottom: 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-gap: 20px;
+}
+
+.content-transaction-container, .content-market-container{
+       border: .5px solid #231f2027;
+       border-radius: 5px;
+       width: 100%;
+       height: 100%;
+         background: #fff;
+         display: flex;
+        align-items: center;
+        flex-direction: column;
+}
+
+.transaction-container-header{
+      width: 90%;
+      height: 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+}
+.transaction-container-header-h3{
+      font-size: 15px;
+      font-family: "MontserratSemiBold";
+       color: #231f20;
+}
+
+.transaction-container-header-p{
+      font-size: 13px;
+     font-family: "MontserratRegular";
+      color: #249170    ;
+      display: flex;
+}
+.transaction-container-arrow{
+      width: 20px;
+      height: 20px;
+     
+}
+
+.transaction-container-arrow-icon{
+        width: 15px;
+      height: 15px;
+      transform: rotate(270deg);
+      margin-left: 5px;
+      
+}
+
+.transaction-container-detail{
+      width: 90%;
+      height: 280px;
+      display: flex;
+      border: .5px solid #231f2027;
+      overflow-y: scroll;
+}
+.conent-market-details{
+      width: 90%;
+      height: 280px;     
+          overflow-y: scroll;
+}
+
+.market-detail-card{
+      float: left;
+      width: 28%;
+      height: 38%;
+      margin: 10px;
+      margin-top: 10px;
+
+}
+
+.market-detail-card-image{
+      width: 100%;
+      height: 70%;
+      border: .5px solid #231f2027; 
+      border-radius: 10px;
+}
+.market-detail-card-image img{
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+}
+.market-detail-card-content{
+      width: 100%;
+      height: 30%;
+}
+
+.market-detail-card-content h3{
+      font-family: "MontserratBold";
+      font-size: 70%;
+      margin-left: 15px;
+      color: #231f20;
+}
+
+.market-detail-card-content p{
+      font-family: "MontserratRegular";
+      font-size: 55%;
+      margin-left: 15px;
+      margin-top: -10px;
+       color: #678980;
+}
+
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+      .market-detail-card{
+      float: left;
+      width: 23%;
+      height: 38%;
+      margin: 10px;
+      margin-top: 10px;
+
+}
+.market-detail-card-content h3{
+      font-family: "MontserratBold";
+      font-size: 45%;
+      margin-left: 15px;
+      color: #231f20;
+}
+
+.market-detail-card-content p{
+      font-family: "MontserratRegular";
+      font-size: 40%;
+      margin-left: 15px;
+      margin-top: -10px;
+       color: #678980;
+}
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+     .market-detail-card{
+      float: left;
+      width: 25%;
+      height: 38%;
+      margin: 10px;
+      margin-top: 20px;
+  
+
+}
+.market-detail-card-content h3{
+      font-family: "MontserratBold";
+      font-size: 60%;
+      margin-left: 15px;
+      color: #231f20;
+}
+
+.market-detail-card-content p{
+      font-family: "MontserratRegular";
+      font-size: 60%;
+      margin-left: 15px;
+      margin-top: -10px;
+       color: #678980;
+}
+}

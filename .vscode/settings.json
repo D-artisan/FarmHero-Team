@@ -1,0 +1,5 @@
+{
+    "prettier.jsxSingleQuote": true,
+    "prettier.trailingComma": "all",
+    "prettier.useTabs": true
+}
