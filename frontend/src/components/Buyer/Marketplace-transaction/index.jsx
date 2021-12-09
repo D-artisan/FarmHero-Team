@@ -12,13 +12,13 @@ import { generalIcons } from '../../../themes';
 const BuyerTransaction = () => {
 	const [transaction, setTransaction] = useState([])
 
-	useEffect(() => {
-		async function getData() {
-			const {data} = await axios.get('/transactions/')
-			setTransaction(data)
-		}
-		getData()
-	}, [])
+	// useEffect(() => {
+	// 	async function getData() {
+	// 		const {data} = await axios.get('/transactions/')
+	// 		setTransaction(data)
+	// 	}
+	// 	getData()
+	// }, [])
 
 
 	return (

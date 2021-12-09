@@ -2,7 +2,7 @@ import React from 'react';
 import { fleetIcons, generalIcons, productImages } from '../../../themes';
 import BuyerSidebar from '../Marketplace-sidebar';
 import { Navbar } from '..';
-import './styles.css';
+// import './styles.css';
 
 const BuyerFleetInfo = () => {
 	

@@ -1,108 +1,208 @@
-import React, { useEffect, useState } from 'react';
-import { generalIcons } from '../../../themes'
-import { Dropdown } from '../../../Cards'
-import './styles.css'
-import { Link } from 'react-router-dom';
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
+import Box from '@mui/material/Box';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
+import Badge from '@mui/material/Badge';
+import MenuItem from '@mui/material/MenuItem';
+import Menu from '@mui/material/Menu';
+import AccountCircle from '@mui/icons-material/AccountCircle';
+import MailIcon from '@mui/icons-material/Mail';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import MoreIcon from '@mui/icons-material/MoreVert';
+import {Link} from 'react-router-dom'
+import axios from 'axios'
+import { useHistory } from 'react-router';
 
-const Navbar = () => {
-	const [dropdownActive, setDropdownActive] = useState(false);
-	const [dropdowntwoActive, setDropdownTwoActive] = useState(false);
+export default function PrimarySearchAppBar() {
+  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [notificationEl, setNotificationEl] = React.useState(null);
+  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+	const token = localStorage.getItem('token')
+const history = useHistory()
+  const isMenuOpen = Boolean(anchorEl);
+  const isMenuuOpen = Boolean(notificationEl);
+  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
-	const showDropdown = () => {
-		setDropdownActive(!dropdownActive);
+  const handleProfileMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+	console.log(event.currentTarget);
+  };
+  const handleNotificationMenuOpen = (event) => {
+    setNotificationEl(event.currentTarget);
+	console.log(event.currentTarget);
+  };
+
+  const handleMobileMenuClose = () => {
+    setMobileMoreAnchorEl(null);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+	setNotificationEl(null);
+    handleMobileMenuClose();
+  };
+
+  const handleLogOut = () => {
+    setAnchorEl(null);
+    setNotificationEl(null);
+    handleMobileMenuClose();
+    history.push({
+      pathname: '/'
+    }) 
+  }
+  const handleMobileMenuOpen = (event) => {
+    setMobileMoreAnchorEl(event.currentTarget);
+  };
+
+  const menuId = 'primary-search-account-menu';
+
+  const renderMenu = (
+    <Menu
+      anchorEl={anchorEl}
+      anchorOrigin={{
+        vertical: 'top',
+        horizontal: 'right',
+      }}
+      id={menuId}
+      keepMounted
+      transformOrigin={{
+        vertical: 'top',
+        horizontal: 'right',
+      }}
+      open={isMenuOpen}
+      onClose={handleMenuClose}
+    >
+		<Link to='/seller/marketplace/profile' style={{color: '#000'}}>
+      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
+	  </Link>
+      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+	  {/* <Link to='/' style={{color: '#000'}}> */}
+	  <MenuItem onClick={handleLogOut}>Log Out </MenuItem>
+		{/* </Link> */}
+    </Menu>
+  );
+
+  const notificationId = 'primary-notify-account-menu';
+  const renderNotification = (
+    <Menu
+      anchorEl={notificationEl}
+      anchorOrigin={{
+        vertical: 'top',
+        horizontal: 'right',
+      }}
+      id={notificationId}
+      keepMounted
+      transformOrigin={{
+        vertical: 'top',
+        horizontal: 'right',
+      }}
+      open={isMenuuOpen}
+      onClose={handleMenuClose}
+    >
+      <MenuItem onClick={handleMenuClose}>Kofi is a very busy guy</MenuItem>
+      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
+
+    </Menu>
+  );
+
+  const mobileMenuId = 'primary-search-account-menu-mobile';
+  const renderMobileMenu = (
+    <Menu
+      anchorEl={mobileMoreAnchorEl}
+      anchorOrigin={{
+        vertical: 'top',
+        horizontal: 'right',
+      }}
+      id={mobileMenuId}
+      keepMounted
+      transformOrigin={{
+        vertical: 'top',
+        horizontal: 'right',
+      }}
+      open={isMobileMenuOpen}
+      onClose={handleMobileMenuClose}
+    >
+     
+      <MenuItem>
+        <IconButton
+          size="large"
+          aria-label="show 17 new notifications"
+          color="inherit"
+        >
+          <Badge badgeContent={17} color="error">
+            <NotificationsIcon />
+          </Badge>
+        </IconButton>
+        <p>Notifications</p>
+      </MenuItem>
+      <MenuItem onClick={handleProfileMenuOpen}>
+        <IconButton
+          size="large"
+          aria-label="account of current user"
+          aria-controls="primary-search-account-menu"
+          aria-haspopup="true"
+          color="inherit"
+        >
+          <AccountCircle />
+        </IconButton>
 		
-
-	};
-
-	const showDropdowntwo = () => {
-		setDropdownTwoActive(!dropdowntwoActive);
-	};
-
-	window.addEventListener('click', () => {
-		document.querySelector('.navbar-dropdown-container').style.display ='none';
-		document.querySelector('.navbar-notification-dropdown-container').style.display ='none';
-	// window.location.reload(false);
-		// if (dropdownActive == true) {
-		// 	setDropdownActive(false)
-		// }
-	console.log(dropdownActive, dropdowntwoActive);
-	})
+        <p>Profile</p>
 	
-	useEffect(() => {
-		const dropdown = document.querySelector(
-			'.navbar-dropdown-container',
-		);
-		const dropdowntwo = document.querySelector(
-			'.navbar-notification-dropdown-container',
-		);
-		dropdownActive
-			? (dropdown.style.display = 'block')
-			: (dropdown.style.display = 'none');
+      </MenuItem>
+    </Menu>
+  );
 
-		dropdowntwoActive
-			? (dropdowntwo.style.display = 'block')
-			: (dropdowntwo.style.display = 'none');
-	}, [dropdownActive, dropdowntwoActive]);
-      return (
-		<div className='navbar-container'>
-			<div className='navbar-content'>
-				<div
-					className='navbar-notification'
-					onClick={showDropdowntwo}
-					style={{ cursor: 'pointer' }}
-				>
-					<div className='notifier'>{'1'}</div>
-					<img
-						src={generalIcons.Asset_Notification}
-						alt='notification'
-					/>
-				</div>
-				<div className='navbar-notification-dropdown-container'>
-					<Dropdown
-						customStyle={{
-							position: 'absolute',
-							width: '300px',
-							paddingLeft: '15px',
-						}}
-						customHeader={'Notification'}
-						customData={['lorem is a good boy ']}
-					/>
-				</div>
-				<div className='navbar-profile'>
-					<img
-						src={generalIcons.Asset_Profile}
-						alt='profile'
-					/>
-				</div>
-				<div
-					className='navbar-dropdown'
-					onClick={showDropdown}
-					style={{ cursor: 'pointer' }}
-				>
-					<img
-						src={generalIcons.Asset_Arrow}
-						alt='dropdown'
-					/>
-				</div>
-				<div className='navbar-dropdown-container'>
-					<Dropdown
-						customStyle={{
-							position: 'absolute',
-							width: '150px',
-							paddingLeft: '15px',
-						}}
-						customData={[
-							<Link to='/seller/marketplace/profile'>
-								Profile
-							</Link>,
-							'Setting',
-							'Logout',
-						]}
-					/>
-				</div>
-			</div>
-		</div>
-	);
+  return (
+    <Box sx={{ flexGrow: 1 }} style={{ background: 'none',border: 'none',boxShadow: 'none', }}>
+      <AppBar position="static" style={{background: 'none',border: 'none', boxShadow: 'none'}} >
+        <Toolbar > 
+          <Box sx={{ flexGrow: 1 }} />
+          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+           
+            <IconButton
+              size="large"
+			  edge="end"
+              aria-label="show 17 new notifications"
+			  aria-controls={notificationId}
+              aria-haspopup="true"
+              style={{color: '#3daf73', marginRight: '10px', marginTop: '20px'}}
+			  onClick={handleNotificationMenuOpen}
+            >
+              <Badge badgeContent={17} color="error">
+                <NotificationsIcon style={{width: '30px', height: '30px'}}/>
+              </Badge>
+            </IconButton>
+            <IconButton
+              size="large"
+              edge="end"
+              aria-label="account of current user"
+              aria-controls={menuId}
+              aria-haspopup="true"
+              onClick={handleProfileMenuOpen}
+			  style={{color: '#3daf73', marginRight: '60px',  marginTop: '20px'}}
+            >
+              <AccountCircle style={{width: '30px', height: '30px'}}/>
+            </IconButton>
+          </Box>
+          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+          <IconButton
+              size="large"
+              aria-label="show more"
+              aria-controls={mobileMenuId}
+              aria-haspopup="true"
+              onClick={handleMobileMenuOpen}
+              style={{color: '#000'}}
+            >
+              <MoreIcon />
+            </IconButton>
+          </Box>
+        </Toolbar>
+      </AppBar>
+      {renderMobileMenu}
+      {renderMenu}
+      {renderNotification}
+
+    </Box>
+  );
 }
-
-export default Navbar

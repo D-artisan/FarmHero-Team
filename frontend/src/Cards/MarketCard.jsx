@@ -22,7 +22,7 @@ const MarketCard = ({product}) => {
 							src={generalIcons.Asset_Cedi}
 							alt='cedi'
 						/>
-						<p>{product.unit_price}</p>
+						<p>{product.unit}</p>
 					</div>
 					<div className='transaction-body-content'>
 						<img

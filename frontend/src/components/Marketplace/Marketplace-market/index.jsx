@@ -15,11 +15,16 @@ const MarketPlaceMarket = () => {
 	const [marketProduct, setMarketProduct] = useState([])
 	const [graphData, setGraphData] = useState([])
 	useEffect(() => {
-		async function getData() {
-			const { data } = await axios.get('/api/stocks');
-			setMarketProduct(data);
+		try{
+			async function getData() {
+				const { data } = await axios.get('/stocks/');
+				setMarketProduct(data);
+				console.log('data',data);
+			}
+			getData();
+		} catch(error){
+			console.log(error.response);
 		}
-		getData();
 	}, []);
 
 	useEffect(() => {

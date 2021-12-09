@@ -16,14 +16,14 @@ const BuyerMarket = () => {
 	const [graphData, setGraphData] = useState([]);
 	const [year, setYear] = useState('2016');
 
-	useEffect(() => {
-		async function getData() {
-			const { data } = await axios.get('/stocks/');
-			setMarketProduct(data);
-		}
-		console.log(graphData);
-		getData();
-	}, [graphData]);
+	// useEffect(() => {
+	// 	async function getData() {
+	// 		const { data } = await axios.get('/stocks');
+	// 		setMarketProduct(data);
+	// 	}
+	// 	console.log(graphData);
+	// 	getData();
+	// }, [graphData]);
 
 	useEffect(() => {
 		marketProduct.map(product => setGraphData(product.pro_name));
@@ -253,12 +253,12 @@ const BuyerMarket = () => {
 								<div className='buyer-card-body'>
 									<div className='buyer-card-body-grid'>
 										<div
-											className='inventory-detail-card buyer-market-card'
+											className='buyer-product-card'
 											onClick={
 												hiddenFunc
 											}
 										>
-											<div className='inventory-detail-card-header'>
+											<div className='buyer-product-card-top'>
 												{/* <div className='inventory-detail-card-header-header'>
 													<p>Edit</p>
 													<p>x</p>
@@ -270,8 +270,8 @@ const BuyerMarket = () => {
 													alt='maize'
 												/>
 											</div>
-											<div className='inventory-detail-card-body'>
-												<div className='inventory-detail-card-body-header'>
+											<div className='buyer-product-card-bottom'>
+												<div className=''>
 													<h3>
 														{
 															'Maize'
@@ -279,7 +279,7 @@ const BuyerMarket = () => {
 													</h3>
 													{/* <div className='card-header-icon'></div> */}
 												</div>
-												<div className='inventory-detail-card-body-detail'>
+												<div className=''>
 													<div className='card-body-top'>
 														<p className='headinginv'>
 															Price:
@@ -299,12 +299,12 @@ const BuyerMarket = () => {
 											</div>
 										</div>
 										<div
-											className='inventory-detail-card buyer-market-card'
+											className='buyer-product-card'
 											onClick={
 												hiddenFunc
 											}
 										>
-											<div className='inventory-detail-card-header'>
+											<div className='buyer-product-card-top'>
 												{/* <div className='inventory-detail-card-header-header'>
 													<p>Edit</p>
 													<p>x</p>
@@ -316,8 +316,8 @@ const BuyerMarket = () => {
 													alt='maize'
 												/>
 											</div>
-											<div className='inventory-detail-card-body'>
-												<div className='inventory-detail-card-body-header'>
+											<div className='buyer-product-card-bottom'>
+												<div className=''>
 													<h3>
 														{
 															'Maize'
@@ -325,7 +325,97 @@ const BuyerMarket = () => {
 													</h3>
 													{/* <div className='card-header-icon'></div> */}
 												</div>
-												<div className='inventory-detail-card-body-detail'>
+												<div className=''>
+													<div className='card-body-top'>
+														<p className='headinginv'>
+															Price:
+														</p>
+														<p>
+															{
+																'12.00'
+															}{' '}
+															ghc
+														</p>
+													</div>
+													<div className='card-body-top'>
+														{/* <p className='headinginv'>Exp Date:</p> */}
+														{/* <p>{product.date}</p> */}
+													</div>
+												</div>
+											</div>
+										</div><div
+											className='buyer-product-card'
+											onClick={
+												hiddenFunc
+											}
+										>
+											<div className='buyer-product-card-top'>
+												{/* <div className='inventory-detail-card-header-header'>
+													<p>Edit</p>
+													<p>x</p>
+												</div> */}
+												<img
+													src={
+														productImages.Maize
+													}
+													alt='maize'
+												/>
+											</div>
+											<div className='buyer-product-card-bottom'>
+												<div className=''>
+													<h3>
+														{
+															'Maize'
+														}
+													</h3>
+													{/* <div className='card-header-icon'></div> */}
+												</div>
+												<div className=''>
+													<div className='card-body-top'>
+														<p className='headinginv'>
+															Price:
+														</p>
+														<p>
+															{
+																'12.00'
+															}{' '}
+															ghc
+														</p>
+													</div>
+													<div className='card-body-top'>
+														{/* <p className='headinginv'>Exp Date:</p> */}
+														{/* <p>{product.date}</p> */}
+													</div>
+												</div>
+											</div>
+										</div><div
+											className='buyer-product-card'
+											onClick={
+												hiddenFunc
+											}
+										>
+											<div className='buyer-product-card-top'>
+												{/* <div className='inventory-detail-card-header-header'>
+													<p>Edit</p>
+													<p>x</p>
+												</div> */}
+												<img
+													src={
+														productImages.Maize
+													}
+													alt='maize'
+												/>
+											</div>
+											<div className='buyer-product-card-bottom'>
+												<div className=''>
+													<h3>
+														{
+															'Maize'
+														}
+													</h3>
+													{/* <div className='card-header-icon'></div> */}
+												</div>
+												<div className=''>
 													<div className='card-body-top'>
 														<p className='headinginv'>
 															Price:
@@ -344,98 +434,7 @@ const BuyerMarket = () => {
 												</div>
 											</div>
 										</div>
-										<div
-											className='inventory-detail-card buyer-market-card'
-											onClick={
-												hiddenFunc
-											}
-										>
-											<div className='inventory-detail-card-header'>
-												{/* <div className='inventory-detail-card-header-header'>
-													<p>Edit</p>
-													<p>x</p>
-												</div> */}
-												<img
-													src={
-														productImages.Maize
-													}
-													alt='maize'
-												/>
-											</div>
-											<div className='inventory-detail-card-body'>
-												<div className='inventory-detail-card-body-header'>
-													<h3>
-														{
-															'Maize'
-														}
-													</h3>
-													{/* <div className='card-header-icon'></div> */}
-												</div>
-												<div className='inventory-detail-card-body-detail'>
-													<div className='card-body-top'>
-														<p className='headinginv'>
-															Price:
-														</p>
-														<p>
-															{
-																'12.00'
-															}{' '}
-															ghc
-														</p>
-													</div>
-													<div className='card-body-top'>
-														{/* <p className='headinginv'>Exp Date:</p> */}
-														{/* <p>{product.date}</p> */}
-													</div>
-												</div>
-											</div>
-										</div>
-										<div
-											className='inventory-detail-card buyer-market-card'
-											onClick={
-												hiddenFunc
-											}
-										>
-											<div className='inventory-detail-card-header'>
-												{/* <div className='inventory-detail-card-header-header'>
-													<p>Edit</p>
-													<p>x</p>
-												</div> */}
-												<img
-													src={
-														productImages.Maize
-													}
-													alt='maize'
-												/>
-											</div>
-											<div className='inventory-detail-card-body'>
-												<div className='inventory-detail-card-body-header'>
-													<h3>
-														{
-															'Maize'
-														}
-													</h3>
-													{/* <div className='card-header-icon'></div> */}
-												</div>
-												<div className='inventory-detail-card-body-detail'>
-													<div className='card-body-top'>
-														<p className='headinginv'>
-															Price:
-														</p>
-														<p>
-															{
-																'12.00'
-															}{' '}
-															ghc
-														</p>
-													</div>
-													<div className='card-body-top'>
-														{/* <p className='headinginv'>Exp Date:</p> */}
-														{/* <p>{product.date}</p> */}
-													</div>
-												</div>
-											</div>
-										</div>
+
 										{/*dummy ends here*/}
 									</div>
 								</div>

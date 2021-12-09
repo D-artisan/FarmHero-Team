@@ -11,17 +11,17 @@ const BuyerInventory = () => {
 	// api calls
 	const [stocks, setStocks] = useState([]);
 
-	useEffect(() => {
-		async function fetchStocks() {
-			const { data } = await axios.get(
-				'/api/stocks/',
-			);
-			setStocks(data);
-		}
-		console.log(stocks);
+	// useEffect(() => {
+	// 	async function fetchStocks() {
+	// 		const { data } = await axios.get(
+	// 			'/stocks',
+	// 		);
+	// 		setStocks(data);
+	// 	}
+	// 	console.log(stocks);
 
-		fetchStocks();
-	}, [stocks]);
+	// 	fetchStocks();
+	// }, [stocks]);
 
 	// display grid function
 	// const assetGridFunction = () => {

@@ -306,7 +306,7 @@
       border-radius: 5px;
 }
 .fli-card-two-header{
-      width: 100%;
+      width: auto;
       height: 60%;
       /* background: red; */
       display: flex;

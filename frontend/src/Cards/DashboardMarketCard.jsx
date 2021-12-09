@@ -6,7 +6,7 @@ const DashBoardMarketCard = ({product}) => {
 		<div className='market-detail-card'>
 			<div className='market-detail-card-image'>
 				{' '}
-				<img src={product.image} alt='cocoyam' />
+				<img src={`http://localhost:8000${product.image}`} alt='cocoyam' />
 			</div>
 			<div className='market-detail-card-content'>
 				<h3>{product.pro_name}</h3>

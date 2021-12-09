@@ -82,12 +82,14 @@ input[type='search']::-webkit-search-results-decoration {
 }
 
 .navbar-notification-dropdown-container{
-      width: auto;
+    width: 100%;
 	height: auto;
-	position: absolute;
-	margin-right: 360px;
-	margin-left: 210px;
+	/* position: absolute; */
+	/* margin-right: 360px; */
+	/* margin-left: 210px; */
 	margin-top: 45px;	
+	display: flex;
+	justify-content: flex-end;
 }
 
 .navbar-dropdown-container a{

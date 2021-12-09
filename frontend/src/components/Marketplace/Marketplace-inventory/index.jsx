@@ -21,7 +21,7 @@ const MarketPlaceInventory = () => {
 	const [quantity, setQuantity] = useState('');
 	const [expiryDate, setExpiryDate] = useState('');
 	const [productImage, setProductImage] = useState(null)
-
+	const token = localStorage.getItem('token')
 
 	useEffect(() => {
 		async function fetchStocks() {
@@ -29,6 +29,7 @@ const MarketPlaceInventory = () => {
 				'/stocks/',
 			);
 			setStocks(data);
+			console.log(data);
 		}
 
 		fetchStocks();
@@ -42,13 +43,21 @@ const MarketPlaceInventory = () => {
 			bodyFormData.append('nature', nature);
 			bodyFormData.append('unit', quantity);
 			// bodyFormData.append('expiry', expiryDate);
-
+	
+		console.log(token);
 		axios({
 			method: 'post',
 			url: '/stocks/create/',
 			data: bodyFormData,
+			headers: {token},
+			mode: 'cors'
 		})
-			.then(res => console.log('res',res))
+			.then(res => {
+				console.log('res',res)
+				if (res.statusText === "OK") {
+					window.location.reload()
+				}
+			})
 			.catch(err => console.log('err', err));
 	};
 
@@ -306,6 +315,7 @@ const MarketPlaceInventory = () => {
 						<div className='inventorystyle'>
 							<div className='inventory-dashboard-body '>
 								{stocks.map(stock => (
+									console.log(stock),
 									<InventoryGrid
 										key={stock._id}
 										product={stock}
