@@ -17,13 +17,13 @@ const BuyerDashboard = () => {
 	const [mar_product, setMarketproduct] = useState([]);
 
 
-	// useEffect(() => {
-	// 	async function fetchData() {
-	// 		const {data} = await axios.get('/stocks')
-	// 		setMstock(data)
-	// 	}
-	// 	fetchData()
-	// }, [])
+	useEffect(() => {
+		async function fetchData() {
+			const {data} = await axios.get('/stocks/')
+			setMstock(data)
+		}
+		fetchData()
+	}, [])
 
 	useEffect(() => {
 		const newData = mstock.slice(0, 5);

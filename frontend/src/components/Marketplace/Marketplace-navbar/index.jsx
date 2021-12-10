@@ -47,6 +47,12 @@ const history = useHistory()
     setAnchorEl(null);
     setNotificationEl(null);
     handleMobileMenuClose();
+    // axios({
+    //   method: 'post',
+    //   url: '/logout/',
+    //   data: token
+    // }).then(res => console.log(res))
+    // .catch(err => console.log(err))
     history.push({
       pathname: '/'
     }) 

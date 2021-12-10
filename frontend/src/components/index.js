@@ -17,6 +17,7 @@ import {
 	BuyerFleet,
 	BuyerInventoryList,
 	BuyerTransaction,
+	BuyerFleetInfo
 } from './Buyer';
 import ProfilePage from "./ProfilePage";
 import ErrorPage from './Error'
@@ -43,5 +44,6 @@ export {
 	BuyerFleet,
 	BuyerInventoryList,
 	BuyerTransaction,
-	ErrorPage
+	ErrorPage,
+	BuyerFleetInfo
 };
