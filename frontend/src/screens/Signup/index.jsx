@@ -27,7 +27,7 @@ const SignUp = () => {
 			console.log(data);
 		axios({
 			method: 'post',
-			url: `/register`,
+			url: `/register/`,
 			data: data,
 		})
 			.then(res => {

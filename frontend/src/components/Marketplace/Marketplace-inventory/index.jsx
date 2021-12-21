@@ -4,8 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { generalIcons } from '../../../themes';
 import MarketplaceSidebar from '../Marketplace-sidebar';
 import { Navbar } from '..';
-import { Icon } from '@iconify/react';
-import trashIcon from '@iconify/icons-ion/trash';
+
 import axios from 'axios';
 import './styles.css';
 import { InventoryGrid, InventoryMenu } from '../../../Cards';
@@ -47,7 +46,7 @@ const MarketPlaceInventory = () => {
 		console.log(token);
 		axios({
 			method: 'post',
-			url: '/stocks/create/',
+			url: '/stock/create/',
 			data: bodyFormData,
 			headers: {token},
 			mode: 'cors'
@@ -256,26 +255,16 @@ const MarketPlaceInventory = () => {
 					<div className='dashboardsolid-containter'>
 						<div className='inventory-dashboard-header'>
 							<div className='inventory-left'>
-								<p>Select All</p>
-								<input
+								{/* <p>Select All</p> */}
+								{/* <input
 									type='checkbox'
 									name=''
 									id=''
 									onChange={
 										deleteAllselected
 									}
-								/>
-								<Icon
-									icon={trashIcon}
-									color='red'
-									width='22'
-									style={{
-										marginTop: '-5px',
-										marginLeft: '15px',
-										display: 'none',
-									}}
-									className='icon-trassh'
-								/>
+								/> */}
+
 							</div>
 							<div className='intentory-add-product'>
 								<p onClick={handleProductAdd}>

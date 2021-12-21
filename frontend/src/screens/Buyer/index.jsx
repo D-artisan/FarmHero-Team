@@ -10,8 +10,9 @@ import {
 	BuyerInventoryList,
 	BuyerTransaction,
 	ProfilePage,
-	FleetInfo,
+	BuyerFleetInfo,
 } from '../../components';
+import BuyerInner from '../../Sections/Buyerinner';
 
 const Buyer = () => {
 	return (
@@ -61,7 +62,12 @@ const Buyer = () => {
 					<Route
 						path='/buyer/fleetinfo'
 						exact
-						component={FleetInfo}
+						component={BuyerFleetInfo}
+					/>
+					<Route
+						path='/buyer/buyerinner'
+						exact
+						component={BuyerInner}
 					/>
 				</div>
 			</Switch>

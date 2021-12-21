@@ -43,36 +43,18 @@ const InventoryMenu = ({product}) => {
 			.catch(err => console.log('err', err));
 	};
 
-	// display grid function
-	const assetGridFunction = () => {
-		document.querySelector('.inventorystyle').style.display = 'block';
-		document.querySelector('.inventoryliststyle').style.display =
-			'none';
-		console.log('hello');
-	};
 
-	//display table funtion
-	const assetMenuFunction = () => {
-		document.querySelector('.inventoryliststyle').style.display =
-			'block';
-		document.querySelector('.inventorystyle').style.display = 'none';
-		console.log('hell');
-	};
 
-	//delete checkbox
-	const deleteAllselected = () => {
-		document.querySelector('.icon-trassh').style.display = 'block';
-	};
 	const handleProductClose = () => {
 		document.querySelector('.update-new-product').style.display =
 			'none';
 	};
 	const handleProductAdd = () => {
-		document.querySelector('.update-new-product').style.visibility =
-			'visible';
+		document.querySelector('.update-new-product').style.display =
+			'flex';
 	};
 	const upload = e => {
-		// console.log('upload');
+		console.log('upload');
 
 		if (e.target.files[0].size <= 50000000) {
 			let file = e.target.files[0];
@@ -123,7 +105,7 @@ const InventoryMenu = ({product}) => {
 							<input
 								type='text'
 								name='productName'
-								placeholder='Enter Product Name'
+								placeholder={product.pro_name}
 								value={productName}
 								onChange={e =>
 									setproductName(
@@ -146,7 +128,7 @@ const InventoryMenu = ({product}) => {
 									selected
 									hidden
 								>
-									Select product nature
+									{product.nature}
 								</option>
 								<option value='perishable'>
 									Perishable
@@ -164,7 +146,7 @@ const InventoryMenu = ({product}) => {
 							<input
 								type='text'
 								name='quantity'
-								placeholder='Enter Quantity in tonnes'
+								placeholder={product.unit}
 								value={quantity}
 								onChange={e =>
 									setQuantity(
@@ -192,25 +174,30 @@ const InventoryMenu = ({product}) => {
 						</div>
 						<div className='anp-image-upload'>
 							<p>upload a photo</p>
-							<label htmlFor='uploadImage'>
+							<label htmlFor='uploadImage6'>
 								{previewImage ? (
 									<img
 										src={previewImage}
 										alt='preview'
 									/>
 								) : (
-									<p>upload</p>
+									<img
+										src={`http://localhost:8000${product.image}`}
+										alt='preview'
+									/>
 								)}
 							</label>
 							<input
 								type='file'
-								name='uploadImage'
-								id='uploadImage'
+								name='uploadImage6'
+								id='uploadImage6'
 								accept='image/gif, image/jpeg, image/png, image/jpg'
 								onChange={e => {
 									let files =
 										e.target.files;
+										console.log(files);
 									if (files.length === 1) {
+										
 										upload(e);
 									} else {
 										e.target.value = '';
@@ -268,7 +255,6 @@ const InventoryMenu = ({product}) => {
 								color='#ff0000'
 								width='22'
 								style={{
-									marginTop: '-5px',
 									marginLeft: '15px',
 								}}
 							/>

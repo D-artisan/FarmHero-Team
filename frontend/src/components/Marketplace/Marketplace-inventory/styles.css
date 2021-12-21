@@ -425,6 +425,13 @@
       margin-top: 5px;     
       margin-bottom: 10px;     
 }
+
+.anp-card-secthree select{
+      /* margin: 0; */
+      width: 105%;
+      height: 40px;
+      /* padding: 0; */
+}
 .anp-image-upload{
       width: 70%;
       height: 150px;
@@ -459,4 +466,12 @@
 .anp-image-upload label img{
       width: 80%;
       height: 80%;
+}
+
+.card-body-bottom-end{
+      width: 100%;
+      height: auto;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
 }

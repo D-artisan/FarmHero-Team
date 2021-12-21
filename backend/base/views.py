@@ -37,6 +37,12 @@ def getStocks(request):
       serializer = StockSerializer(stocks, many=True)
       return Response(serializer.data)
 
+@api_view([ 'GET'])
+def getStocker(request, pk):
+      stock = Stock.objects.get(_id=pk)
+      serializer = StockSerializer(stock, many=False)
+      return Response(serializer.data)  
+
 @api_view([ 'DELETE'])
 def getStock(request, pk):
       stock = Stock.objects.get(_id=pk)

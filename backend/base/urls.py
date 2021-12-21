@@ -6,9 +6,11 @@ urlpatterns = [
 
 
       path('stocks/', views.getStocks, name='stocks'),
+      path('stocks/<str:pk>/', views.getStocker, name='stocks'),
+
       path('transactions/', views.getTransaction, name='transaction'),
 
-      path('stocks/create/', views.addStocks, name='addstocks'),
+      path('stock/create/', views.addStocks, name='addstocks'),
 
 
       path('stocks/delete/<str:pk>/', views.getStock, name='stock'),

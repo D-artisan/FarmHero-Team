@@ -62,7 +62,7 @@ const BuyerFleet = () => {
 				</div>
 				<div className='marketdashboardfleet-content-container'>
 					<div className='dashboardsolid-containter'>
-						<Link to='/seller/marketplace/fleetinfo'>
+						<Link to='/buyer/fleetinfo'>
 							<div className='fleet-container'>
 								<div className='fleet-tracking'>
 									<div className='fleet-tracking-header'>
