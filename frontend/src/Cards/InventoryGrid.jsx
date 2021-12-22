@@ -26,7 +26,11 @@ const InventoryGrid = ({ product }) => {
 			method: 'delete',
 			url: `/stocks/delete/${product._id}/`
 		}).then(
-			res => console.log(res)
+			res => {
+				if(res.status === 204){
+					window.location.reload()
+				}
+				console.log(res)}
 		).catch(err => console.log('err', err))
 		}
 	
@@ -36,10 +40,10 @@ const InventoryGrid = ({ product }) => {
 	
 	const updateStock = () => {
 		let bodyFormData = new FormData();
-		bodyFormData.append('pro_name', productName);
-		bodyFormData.append('image', productImage);
-		bodyFormData.append('nature', nature);
-		bodyFormData.append('unit', quantity);
+		bodyFormData.append('pro_name', productName === '' ? product.pro_name : productName);
+		bodyFormData.append('image', productImage ? productImage : previewImage);
+		bodyFormData.append('nature', nature === '' ? product.nature : nature);
+		bodyFormData.append('unit', quantity === '' ? product.quantity : quantity);
 		// bodyFormData.append('expiry', expiryDate);
 
 		axios({
@@ -47,7 +51,11 @@ const InventoryGrid = ({ product }) => {
 			url: `/stocks/update/${product._id}/`,
 			data: bodyFormData,
 		})
-			.then(res => console.log('res', res))
+			.then(res => {
+				if (res.statusText === "OK") {
+					window.location.reload()
+				}
+				console.log('res', res)})
 			.catch(err => console.log('err', err));
 	};
 

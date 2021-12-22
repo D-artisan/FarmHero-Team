@@ -4,11 +4,16 @@ import { Logo } from '../../themes';
 import { GreenButton } from '../../components/Buttons';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import { useHistory } from 'react-router';
+
+
 const SignUp = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 	const [serviceType, setServiceType] = useState('Select One');
 	const [phoneNumber, setPhoneNumber] = useState('');
+	const history = useHistory()
+
 
 	const validate = () => {
 		let usertype;
@@ -27,11 +32,22 @@ const SignUp = () => {
 			console.log(data);
 		axios({
 			method: 'post',
-			url: `/register/`,
+			url: `/register`,
 			data: data,
 		})
 			.then(res => {
 				console.log(res);
+				if (res.statusText === "OK") {
+					// if (res.data.user_type === "SELLER") {
+						history.push({
+							pathname: '/seller'
+						})
+					// }else if (res.data.user_type === "BUYER") {
+						// history.push({
+						// 	pathname: '/buyer'
+						// })
+					// }
+				}
 			})
 			.catch(err => {
 				console.log(err.response);
