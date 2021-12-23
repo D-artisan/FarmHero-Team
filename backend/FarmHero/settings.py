@@ -27,16 +27,22 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'base.apps.BaseConfig',
-
-    'users.apps.UsersConfig',
-    'location.apps.LocationConfig',
-    'company.apps.CompanyConfig',
-    'phonenumber_field',
+    # 'base.apps.BaseConfig',
+    # 'location.apps.LocationConfig',
+    # 'company.apps.CompanyConfig',
     'django_countries',
 
-    'rest_framework',
+     #Third Party
     'corsheaders',
+    'django_extensions',
+    'rest_framework',
+    'timezone_field',
+    'phonenumber_field',
+    'rest_framework_simplejwt.token_blacklist',
+    'django_cleanup.apps.CleanupConfig',
+
+    # Custom
+    'users.apps.UsersConfig',
 
 ]
 
@@ -70,6 +76,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'FarmHero.wsgi.application'
+
+AUTH_USER_MODEL = 'users.Account'
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
@@ -139,9 +147,6 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'dartisan.superuser@gmail.com'
 EMAIL_HOST_PASSWORD = 'testing4dev'
 EMAIL_USE_TLS = True
-
-
-AUTH_USER_MODEL = 'users.User'
 
 
 CORS_ORIGIN_ALLOW_ALL = True

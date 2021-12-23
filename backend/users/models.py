@@ -1,71 +1,69 @@
 from django.db import models
-from datetime import datetime
-
-from django.utils.translation import gettext_lazy as _
-from phonenumber_field.modelfields import PhoneNumberField
-from django.contrib.auth.models import AbstractUser
+from django.contrib.auth.models import BaseUserManager, AbstractBaseUser, AbstractUser
 
 
-class User(AbstractUser):
-    class Meta:
-        verbose_name_plural = "Clients"
+# Create your models here.
+class MyAccountManager(BaseUserManager):
+    def create_user(self, first_name, last_name, email, password=None):
+        if not email:
+            raise ValueError('User must have an email address')
 
-    id = models.AutoField(primary_key=True)
+        user = self.model(
+            email=self.normalize_email(email),
+            first_name=first_name,
+            last_name=last_name,
+        )
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
 
-    class UserType(models.TextChoices):
-        BUYER = 'BUY', _('Buyer')
-        SELLER = 'SELL', _('Seller')
+    def create_superuser(self, first_name, last_name, email, password):
+        user = self.create_user(
+            email=self.normalize_email(email),
+            first_name=first_name,
+            last_name=last_name,
+            password=password,
+        )
 
-    user_type = models.CharField(
-        max_length=4,
-        choices=UserType.choices,
-        default=UserType.BUYER,
-    )
+        user.is_admin = True
+        user.is_staff = True
+        user.is_active = True
+        user.is_superadmin = True
+        user.save(using=self._db)
+        return user
 
-    def is_type(self):
-        return self.user_type in {
-            self.UserType.BUYER,
-            self.UserType.SELLER,
-        }
 
-    phoneNumber = PhoneNumberField(blank=False)
-    secondPhoneNumber = PhoneNumberField(blank=True)
+class Account(AbstractUser):
+    username = models.CharField(max_length=50, null=True, blank=True, unique=True)
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    email = models.EmailField(max_length=100, unique=True)
 
-    class IdCardType(models.TextChoices):
-        nhis = 'NHIS', _('NHIS')
-        passport = 'PASS', _('PASSPORT')
-        voters_id_card = 'VOTE', _('VOTERS ID CARD')
-
-    id_card_type = models.CharField(
-        max_length=4,
-        choices=IdCardType.choices,
-        default=IdCardType.voters_id_card,
-    )
-
-    def is_type(self):
-        return self.id_card_type in {
-            self.IdCardType.nhis,
-            self.IdCardType.passport,
-            self.IdCardType.voters_id_card,
-        }
-
-    id_number = models.CharField(max_length=50)
-
-    email = models.CharField(max_length=255, unique=True)
-    password = models.CharField(max_length=255)
-    username = None
+    # required
+    date_joined = models.DateTimeField(auto_now_add=True)
+    last_login = models.DateTimeField(auto_now=True)
+    is_admin = models.BooleanField(default=False)
+    is_staff = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=False)
+    is_superadmin = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['first_name', 'last_name']
 
-    photo = models.ImageField(upload_to='photos/%Y%m%d/')
-    created_on = models.DateTimeField(default=datetime.now, blank=True)
-
-    # def __str__(self):
-    #     return self.first_name + ' ' + self.last_name
+    objects = MyAccountManager()
 
     def __str__(self):
-        return self.user_type
+        return self.email
+
+    def has_perm(self, perm, obj=None):
+        return self.is_admin
+
+    def has_module_perms(self, add_label):
+        return True
+
+    def __str__(self):
+        if self.first_name and self.last_name:
+            return f'{self.id} - {self.first_name} {self.last_name}'
+        return self.username
 
 
-    

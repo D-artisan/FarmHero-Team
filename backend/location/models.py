@@ -1,6 +1,6 @@
 from django.db import models
 from datetime import datetime
-from users.models import User
+# from users.models import User
 from django_countries.fields import CountryField
 
 
@@ -10,7 +10,7 @@ class Location(models.Model):
     class Meta:
         verbose_name_plural = "Client Location"
 
-    id = models.ForeignKey(User, to_field='id', on_delete=models.CASCADE, verbose_name="User")
+    # id = models.ForeignKey(User, to_field='id', on_delete=models.CASCADE, verbose_name="User")
 
     country = CountryField(blank_label='(select country)')
     region = models.CharField(max_length=200)

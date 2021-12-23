@@ -1,6 +1,6 @@
 from django.db import models
 from datetime import datetime
-from users.models import User
+# from users.models import User
 from django.utils.translation import gettext_lazy as _
 
 
@@ -9,7 +9,7 @@ class Company(models.Model):
         verbose_name_plural = "Company"
 
     company_id = models.AutoField(primary_key=True)
-    id = models.ForeignKey(User, to_field='id', on_delete=models.CASCADE, verbose_name="User")
+    # id = models.ForeignKey(User, to_field='id', on_delete=models.CASCADE, verbose_name="User")
     name = models.CharField(max_length=200, verbose_name="Company name")
 
     class CompanyType(models.TextChoices):
