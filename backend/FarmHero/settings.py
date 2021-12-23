@@ -15,7 +15,7 @@ SECRET_KEY = 'q3$pic)pt7%jt5g5pyby$x(((c+5f%!+($_$6-uca3_@+=1)nz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'farm-hero-app.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'farm-hero-app.herokuapp.com', '6a03-154-160-24-109.ngrok.io']
 
 # Application definition
 
@@ -32,7 +32,7 @@ INSTALLED_APPS = [
     # 'company.apps.CompanyConfig',
     'django_countries',
 
-     #Third Party
+    # Third Party
     'corsheaders',
     'django_extensions',
     'rest_framework',
@@ -148,6 +148,8 @@ EMAIL_HOST_USER = 'dartisan.superuser@gmail.com'
 EMAIL_HOST_PASSWORD = 'testing4dev'
 EMAIL_USE_TLS = True
 
+# EMAIL CONFIGURATION
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
