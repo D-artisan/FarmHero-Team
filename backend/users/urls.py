@@ -5,7 +5,7 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 urlpatterns = [
     path('usermgmt/register/',  views.register, name='register'),
     path("usermgmt/logout/",    views.logout_view, name="logout-user"),
-    # path('usermgmt/login/', views.login, name='login'),
+    path('usermgmt/login/', views.user_signin_view, name='login'),
 
     #For password reset
     path('usermgmt/forgotPassword/', views.forgotPassword, name='forgotPassword'),

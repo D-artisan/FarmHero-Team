@@ -27,11 +27,6 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # 'base.apps.BaseConfig',
-    # 'location.apps.LocationConfig',
-    # 'company.apps.CompanyConfig',
-    'django_countries',
-
     # Third Party
     'corsheaders',
     'django_extensions',
@@ -43,6 +38,8 @@ INSTALLED_APPS = [
 
     # Custom
     'users.apps.UsersConfig',
+    'django_countries',
+    'marketplace.apps.MarketplaceConfig',
 
 ]
 
