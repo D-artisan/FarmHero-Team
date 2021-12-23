@@ -18,7 +18,7 @@ SECRET_KEY = 'q3$pic)pt7%jt5g5pyby$x(((c+5f%!+($_$6-uca3_@+=1)nz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'farm-hero-app.herokuapp.com', '6a03-154-160-24-109.ngrok.io']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', 'farm-hero-app.herokuapp.com', '06cb-154-160-24-109.ngrok.io']
 
 CORS_ORIGIN_ALLOW_ALL = True
 
