@@ -22,8 +22,7 @@ from rest_framework.parsers import MultiPartParser, FormParser
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework_simplejwt.tokens import RefreshToken, AccessToken
 
-
-
+from users.serializers import UserRegistrationSerializer
 
 ''' ************************************************************************************ '''
 
@@ -70,7 +69,7 @@ def register(request):
     # try:
     password = request.POST.get('password')
     print(request.data)
-    serializer_data = custom_serializers.UserRegistrationSerializer(data=request.POST)
+    serializer_data = UserRegistrationSerializer(data=request.POST)
     print('Valid:', serializer_data.is_valid())
     if serializer_data.is_valid():
         user = serializer_data.save()
