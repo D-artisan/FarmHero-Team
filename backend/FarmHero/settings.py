@@ -1,5 +1,5 @@
 import os
-import django_heroku
+# import django_heroku
 from datetime import timedelta
 from pathlib import Path
 import urllib.parse
@@ -193,4 +193,4 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOW_CREDENTIALS = True
 
-django_heroku.settings(locals())
+# django_heroku.settings(locals())
