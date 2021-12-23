@@ -5,7 +5,7 @@ from django.contrib.auth.password_validation import validate_password
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
-        fields = ['id', 'user_type', 'phoneNumber', 'email', 'password']
+        fields = '__all__'
         extra_kwargs = {
             "password":{'write_only':True},
             "is_active":{'required':False},
@@ -35,15 +35,10 @@ class UserSerializer(serializers.ModelSerializer):
             },
         }
 
-    def create(self, validated_data):
-        instance = self.Meta.model(**validated_data)
-        instance.save()
-        return instance
-
 class UserRegistrationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Account
-        fields = ['first_name', 'last_name', 'email', 'password']
+        fields = '__all__'
 
         extra_kwargs = {
             "password":{'write_only':True},
@@ -72,15 +67,6 @@ class UserRegistrationSerializer(serializers.ModelSerializer):
                 'required':False
             },
         }
-
-    def create(self, validated_data):
-        password = validated_data.pop('password', None)
-        instance = self.Meta.model(**validated_data)
-        instance.save()
-        return instance
-
-
-
 
 class ChangePasswordSerializer(serializers.Serializer):
     model = Account

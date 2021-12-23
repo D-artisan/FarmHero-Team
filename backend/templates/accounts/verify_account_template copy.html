@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Votitude Verification Email</title>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <style>
+            *{
+                margin: 0;
+                padding: 0;
+                outline: none;
+                border: none;
+                box-sizing: border-box;
+                font-family: 'Poppins', sans-serif;
+                text-decoration: none;
+            }
+
+            body{
+                position: relative;
+                color: #1d252d;
+                font-size: 14px;
+                background-color: #F1F7FA;
+            }
+
+            .container{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                align-content: center;
+                flex-wrap: wrap;
+                padding: 40px;
+            }
+
+            .container-flex{
+                padding: 40px;
+                box-shadow: 0px 0px 20px 5px rgba(0,0,0,0.10);
+                border-radius: 10px;
+                background-color: #ffffff;
+            }
+
+            .logo{
+                text-align: center;
+                padding-bottom: 20px;
+                border-bottom: 1px solid #e3e3e3;
+            }
+
+            .logo img{
+                width: 45%;
+            }
+
+            .intro{
+                margin: 50px 0px 30px 0px;
+            }
+
+            .title{
+                font-size: 18px;
+                font-weight: 600;
+                margin-bottom: 20px;
+                color: #016A77;
+            }
+
+            .sub-title{
+                margin-bottom: 20px;
+            }
+
+            a button.verify-button{
+                background: linear-gradient(to right, rgb(223, 0, 76) 40%, rgb(255, 85, 154) 100%);
+                width: 100%;
+                padding: 12px;
+                border-radius: 30px;
+                box-shadow: 0px 5px 15px 2px rgba(0,0,0,0.10);
+                color: #ffffff;
+                font-size: 14px;
+                cursor: pointer;
+            }
+
+            a button{
+                margin-bottom: 20px;
+            }
+
+            .help{
+                padding-top: 20px;
+                border-top: 1px solid #e3e3e3;
+                margin-top: 50px;
+                text-align: center;
+            }
+
+            footer{
+                margin-top: 40px;
+                text-align: center;
+            }
+
+            footer .copy{
+                color: #707070;
+                margin-bottom: 4px;
+                font-size: 12px;
+            }
+
+            footer img{
+                width: 25%;
+            }
+
+
+            @media only screen and (min-width: 768px){
+                footer .copy{
+                     font-size: 14px;
+                }
+
+                footer img{
+                    width: 14%;
+                }
+
+                .container-flex{
+                    padding: 50px;
+                    width: 50%;
+                }
+
+                body{
+                    font-size: 16px;
+                }
+
+                 .logo img{
+                    width: 30%;
+                }
+
+                .title{
+                    font-size: 21px;
+                }
+            }
+
+            @media only screen and (min-width: 768px) and (max-width: 1024px) {
+                footer img{
+                    width: 14%;
+                }
+
+                footer .copy{
+                     font-size: 12px;
+                }
+
+                .container-flex{
+                    width: 80%;
+                }
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div class="container-flex">
+                <div class="logo">
+                    <img src="https://votitude-backend.orabytegh.com/static/media/votitude-logo.png" alt="Votitude logo"/>
+                </div>
+                <div class="intro">Hello {{ user.full_name|title }},<br/>Thank you for signing up to Votitude!</div>
+                <div class="title">
+                    Verify your account and start your polls today!
+                </div>
+                <div class="sub-title">
+                    Please confirm your email address by clicking on the button below.
+                </div>
+                <a href="https://votitude.orabytegh.com/#/verification/?uid={{ uid }}&token={{ token }}">
+                    <button class="verify-button">
+                        Verify Email
+                    </button>
+                </a>
+
+                <div class="help">
+                    Need help? Visit our <a href="#">Help Center</a>
+                </div>
+                <footer>
+                    <div class="copy">Product of</div>
+                    <img src="https://votitude-backend.orabytegh.com/static/media/Orabyte-text-logo.png" alt="Orabyte logo"/>
+                </footer>
+            </div>
+        </div>
+    </body>
+</html>

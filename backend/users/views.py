@@ -11,34 +11,6 @@ from django.contrib.auth.hashers import make_password, check_password
 from django.core.mail import EmailMessage, EmailMultiAlternatives
 from django.utils.encoding import force_bytes
 from django.template.loader import render_to_string
-from django .contrib.auth.tokens import default_token_generator
-from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
-
-from rest_framework import status
-from rest_framework import permissions
-from rest_framework.views import APIView
-from rest_framework.generics import get_object_or_404
-from rest_framework.parsers import MultiPartParser, FormParser
-from rest_framework.decorators import api_view, permission_classes
-from rest_framework_simplejwt.tokens import RefreshToken, AccessToken
-
-from users.serializers import UserRegistrationSerializer
-
-''' ************************************************************************************ '''
-
-from django.contrib import auth
-from users.models import Account
-from users import serializers as custom_serializers
-
-from django.db.models import Q
-from django.http.response import JsonResponse
-from django.core.files.storage import default_storage
-from django.contrib.auth.hashers import make_password, check_password
-
-# Email
-from django.core.mail import EmailMessage, EmailMultiAlternatives
-from django.utils.encoding import force_bytes
-from django.template.loader import render_to_string
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 
@@ -63,13 +35,14 @@ def generate_user_token(user_obj, serialized_data=None):
     return res
 
 
+# Create your views here.
 @api_view(('POST',))
 @permission_classes([permissions.AllowAny])
 def register(request):
     # try:
     password = request.POST.get('password')
     print(request.data)
-    serializer_data = UserRegistrationSerializer(data=request.POST)
+    serializer_data = custom_serializers.UserRegistrationSerializer(data=request.POST)
     print('Valid:', serializer_data.is_valid())
     if serializer_data.is_valid():
         user = serializer_data.save()
@@ -364,7 +337,6 @@ def resetPassword(request, uidb64, token):
     except Exception as e:
         print(e)
         return JsonResponse({'message': f'{e}', 'status': "failed"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
-
 
 
 
