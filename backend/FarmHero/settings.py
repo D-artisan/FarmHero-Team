@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'users.apps.UsersConfig',
     'django_countries',
     'marketplace.apps.MarketplaceConfig',
+    'profiles.apps.ProfilesConfig',
 
 ]
 

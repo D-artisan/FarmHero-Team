@@ -65,7 +65,7 @@ def register(request):
             print(e)
             return JsonResponse(
                 {
-                    'message': 'Failed to send maail.',
+                    'message': 'Failed to send mail.',
                     'status': "failed",
                     # 'uid': urlsafe_base64_encode(force_bytes(user.pk)),
                     # 'token': default_token_generator.make_token(user),
@@ -74,7 +74,8 @@ def register(request):
             )
         return JsonResponse(
             {
-                'message': 'Please check your email address to complete the registration before the verification link expires.',
+                'message': 'Please check your email address to complete the registration before the verification link '
+                           'expires.',
                 'status': "success",
                 # 'uid': urlsafe_base64_encode(force_bytes(user.pk)),
                 # 'token': default_token_generator.make_token(user),
@@ -117,23 +118,6 @@ def activate(request, uidb64, token):
         return JsonResponse({'message': 'Server error', 'status': "failed"},
                             status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
-
-# @api_view(('POST',))
-# @permission_classes([permissions.AllowAny])
-# def login(request):
-#     try:
-#         id  = request.POST.get('id' or None)
-#         password   = request.POST.get('password' or None)
-
-#         user = get_object_or_404(Account, Q(email=id))
-#         if user.check_password(password):
-#             serializer_data = custom_serializers.UserSerializer(user)
-#             res = generate_user_token(user, serializer_data.data)
-#             res['status'] = "success"
-#             return JsonResponse(data=res, status = status.HTTP_201_CREATED)
-#         return JsonResponse(data={'message': 'Incorrect password.', 'status': "failed"}, status = status.HTTP_422_UNPROCESSABLE_ENTITY)
-#     except Exception as e:
-#         return JsonResponse({'message': f'{e}', 'status': "failed",}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 @api_view(['POST'])
 @permission_classes([permissions.AllowAny])
@@ -262,7 +246,7 @@ def resetpassword_validate(request, uidb64, token):
 
     if user is not None and default_token_generator.check_token(user, token):
         request.session['uid'] = uid
-        message = "Plese reset your password."
+        message = "Please reset your password."
         status_msg = 'success'
         code = status.HTTP_200_OK
 
